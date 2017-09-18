@@ -153,10 +153,8 @@ class RocketMap:
         raid_end = None
         raid_begin = None
 
-        if 'raid_begin' in data:
-            raid_begin = datetime.utcfromtimestamp(data['raid_begin'])
-        elif 'battle' in data:
-            raid_begin = datetime.utcfromtimestamp(data['battle'])
+        if 'raid_battle' in data:
+            raid_begin = datetime.utcfromtimestamp(data['raid_battle'])
         elif 'start' in data:
             raid_begin = datetime.utcfromtimestamp(data['start'])
 
@@ -177,7 +175,9 @@ class RocketMap:
             'raid_end': raid_end,
             'raid_begin': raid_begin,
             'lat': float(data['latitude']),
-            'lng': float(data['longitude'])
+            'lng': float(data['longitude']),
+            'gym_name': data.get('gym_name'),
+            'gym_url': data.get('gym_url')
         }
 
         egg['gmaps'] = get_gmaps_link(egg['lat'], egg['lng'])
