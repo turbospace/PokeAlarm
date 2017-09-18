@@ -554,6 +554,8 @@ class Manager(object):
 
         lat, lng = pkmn['lat'], pkmn['lng']
         dist = get_earth_dist([lat, lng], self.__latlng)
+        if form_id == '?':
+            form_id = 0
 
         pkmn['pkmn'] = name
 
@@ -587,7 +589,8 @@ class Manager(object):
             'iv': "{:.1f}".format(iv) if iv != '?' else '?',
             'iv_2': "{:.2f}".format(iv) if iv != '?' else '?',
             'quick_move': self.__move_name.get(quick_id, 'unknown'),
-            'charge_move': self.__move_name.get(charge_id, 'unknown')
+            'charge_move': self.__move_name.get(charge_id, 'unknown'),
+            'form_id': (chr(64 + int(form_id))) if form_id and int(form_id) > 0 else ''
         })
         self.add_optional_travel_arguments(pkmn)
 
