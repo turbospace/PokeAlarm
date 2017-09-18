@@ -857,7 +857,7 @@ class Manager(object):
         gym_info = self.__gym_info.get(gym_id, {})
 
         egg.update({
-            "gym_name": self.__gym_info.get(gym_id, {}).get('name', 'unknown'),
+            #"gym_name": self.__gym_info.get(gym_id, {}).get('name', 'unknown'),
             "gym_description": self.__gym_info.get(gym_id, {}).get('description', 'unknown'),
             "gym_url": self.__gym_info.get(gym_id, {}).get('url', 'https://raw.githubusercontent.com/kvangent/PokeAlarm/master/icons/gym_0.png'),
             'time_left': time_str[0],
