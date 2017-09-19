@@ -554,6 +554,7 @@ class Manager(object):
 
         lat, lng = pkmn['lat'], pkmn['lng']
         dist = get_earth_dist([lat, lng], self.__latlng)
+        form_id = pkmn.get('form_id', 0)
         if form_id == '?':
             form_id = 0
 
@@ -858,8 +859,8 @@ class Manager(object):
 
         egg.update({
             #"gym_name": self.__gym_info.get(gym_id, {}).get('name', 'unknown'),
-            "gym_description": self.__gym_info.get(gym_id, {}).get('description', 'unknown'),
-            "gym_url": self.__gym_info.get(gym_id, {}).get('url', 'https://raw.githubusercontent.com/kvangent/PokeAlarm/master/icons/gym_0.png'),
+            #"gym_description": self.__gym_info.get(gym_id, {}).get('description', 'unknown'),
+            #"gym_url": self.__gym_info.get(gym_id, {}).get('url', 'https://raw.githubusercontent.com/kvangent/PokeAlarm/master/icons/gym_0.png'),
             'time_left': time_str[0],
             '12h_time': time_str[1],
             '24h_time': time_str[2],
@@ -867,7 +868,8 @@ class Manager(object):
             'begin_12h_time': start_time_str[1],
             'begin_24h_time': start_time_str[2],
             "dist": get_dist_as_str(dist),
-            'dir': get_cardinal_dir([lat, lng], self.__latlng)
+            'dir': get_cardinal_dir([lat, lng], self.__latlng),
+            'team': self.__team_name[egg['team_id']]
         })
 
         threads = []
