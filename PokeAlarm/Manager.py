@@ -979,7 +979,8 @@ class Manager(object):
             "dist": get_dist_as_str(dist),
             'dir': get_cardinal_dir([lat, lng], self.__latlng),
             'quick_move': self.__move_name.get(quick_id, 'unknown'),
-            'charge_move': self.__move_name.get(charge_id, 'unknown')
+            'charge_move': self.__move_name.get(charge_id, 'unknown'),
+            'team': self.__team_name[raid['team_id']]
         })
 
         threads = []
