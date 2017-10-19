@@ -23,8 +23,8 @@ class DiscordAlarm(Alarm):
         'pokemon': {
             'username': "<pkmn>",
             'content':"",
-            'icon_url': "https://raw.githubusercontent.com/kvangent/PokeAlarm/master/icons/<pkmn_id>.png",
-            'avatar_url': "https://raw.githubusercontent.com/kvangent/PokeAlarm/master/icons/<pkmn_id>.png",
+            'icon_url': "https://github.com/CalamityJames/PokeAlarm/tree/master/icons/<pkmn_id>.png",
+            'avatar_url': "https://github.com/CalamityJames/PokeAlarm/tree/master/icons/<pkmn_id>.png",
             'title': "A wild <pkmn> has appeared!",
             'url': "<gmaps>",
             'body': "Available until <24h_time> (<time_left>)."
