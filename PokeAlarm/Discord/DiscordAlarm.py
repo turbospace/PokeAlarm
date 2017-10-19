@@ -60,7 +60,7 @@ class DiscordAlarm(Alarm):
             'username': "Raid",
             'content': "",
             'icon_url': "https://raw.githubusercontent.com/kvangent/PokeAlarm/master/icons/<pkmn_id>.png",
-            'avatar_url': "https://raw.githubusercontent.com/kvangent/PokeAlarm/master/icons/egg_<raid_level>.png",
+            'avatar_url': "https://github.com/CalamityJames/PokeAlarm/blob/master/icons/<pkmn_id>.png?raw=true",
             'title': "Level <raid_level> Raid is available against <pkmn>!",
             'url': "<gmaps>",
             'body': "The raid is available until <24h_time> (<time_left>)."
