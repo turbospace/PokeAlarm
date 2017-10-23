@@ -23,13 +23,8 @@ class DiscordAlarm(Alarm):
         'pokemon': {
             'username': "<pkmn>",
             'content':"",
-<<<<<<< HEAD
             'icon_url': "https://github.com/CalamityJames/PokeAlarm/blob/master/icons/<pkmn_id>.png?raw=true",
             'avatar_url': "https://github.com/CalamityJames/PokeAlarm/blob/master/icons/<pkmn_id>.png?raw=true",
-=======
-            'icon_url': "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/<pkmn_id>.png",
-            'avatar_url': "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/<pkmn_id>.png",
->>>>>>> b64c3eec4ac8d747db26b14756ef71e5b2820203
             'title': "A wild <pkmn> has appeared!",
             'url': "<gmaps>",
             'body': "Available until <24h_time> (<time_left>)."
@@ -64,13 +59,8 @@ class DiscordAlarm(Alarm):
         'raid': {
             'username': "Raid",
             'content': "",
-<<<<<<< HEAD
             'icon_url': "https://raw.githubusercontent.com/kvangent/PokeAlarm/master/icons/<pkmn_id>.png",
             'avatar_url': "https://github.com/CalamityJames/PokeAlarm/blob/master/icons/<pkmn_id>.png?raw=true",
-=======
-            'icon_url': "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/<pkmn_id>.png",
-            'avatar_url': "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/egg_<raid_level>.png",
->>>>>>> b64c3eec4ac8d747db26b14756ef71e5b2820203
             'title': "Level <raid_level> Raid is available against <pkmn>!",
             'url': "<gmaps>",
             'body': "The raid is available until <24h_time> (<time_left>)."

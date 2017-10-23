@@ -569,14 +569,10 @@ class Manager(object):
         # Extract some useful info that will be used in the filters
 
         lat, lng = pkmn['lat'], pkmn['lng']
-<<<<<<< HEAD
         dist = get_earth_dist([lat, lng], self.__latlng)
         form_id = pkmn.get('form_id', 0)
         if form_id == '?':
             form_id = 0
-=======
-        dist = get_earth_dist([lat, lng], self.__location)
->>>>>>> b64c3eec4ac8d747db26b14756ef71e5b2820203
 
         pkmn['pkmn'] = name
 
@@ -609,15 +605,9 @@ class Manager(object):
             'iv_0': "{:.0f}".format(iv) if iv != '?' else '?',
             'iv': "{:.1f}".format(iv) if iv != '?' else '?',
             'iv_2': "{:.2f}".format(iv) if iv != '?' else '?',
-<<<<<<< HEAD
             'quick_move': self.__move_name.get(quick_id, 'unknown'),
             'charge_move': self.__move_name.get(charge_id, 'unknown'),
             'form_id': (chr(64 + int(form_id))) if form_id and int(form_id) > 0 else ''
-=======
-            'quick_move': self.__locale.get_move_name(quick_id),
-            'charge_move': self.__locale.get_move_name(charge_id),
-            'form': self.__locale.get_form_name(pkmn_id, pkmn['form_id'])
->>>>>>> b64c3eec4ac8d747db26b14756ef71e5b2820203
         })
         if self.__loc_service:
             self.__loc_service.add_optional_arguments(self.__location, [lat, lng], pkmn)
@@ -889,15 +879,9 @@ class Manager(object):
         gym_info = self.__gym_info.get(gym_id, {})
 
         egg.update({
-<<<<<<< HEAD
             #"gym_name": self.__gym_info.get(gym_id, {}).get('name', 'unknown'),
             #"gym_description": self.__gym_info.get(gym_id, {}).get('description', 'unknown'),
             #"gym_url": self.__gym_info.get(gym_id, {}).get('url', 'https://raw.githubusercontent.com/kvangent/PokeAlarm/master/icons/gym_0.png'),
-=======
-            "gym_name": gym_info.get('name', 'unknown'),
-            "gym_description": gym_info.get('description', 'unknown'),
-            "gym_url": gym_info.get('url', 'https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/gym_0.png'),
->>>>>>> b64c3eec4ac8d747db26b14756ef71e5b2820203
             'time_left': time_str[0],
             '12h_time': time_str[1],
             '24h_time': time_str[2],
@@ -905,12 +889,8 @@ class Manager(object):
             'begin_12h_time': start_time_str[1],
             'begin_24h_time': start_time_str[2],
             "dist": get_dist_as_str(dist),
-<<<<<<< HEAD
             'dir': get_cardinal_dir([lat, lng], self.__latlng),
             'team': self.__team_name[egg['team_id']]
-=======
-            'dir': get_cardinal_dir([lat, lng], self.__location)
->>>>>>> b64c3eec4ac8d747db26b14756ef71e5b2820203
         })
 
         threads = []
@@ -1010,15 +990,9 @@ class Manager(object):
 
         raid.update({
             'pkmn': name,
-<<<<<<< HEAD
             #"gym_name": self.__gym_info.get(gym_id, {}).get('name', 'unknown'),
             #"gym_description": self.__gym_info.get(gym_id, {}).get('description', 'unknown'),
             #"gym_url": self.__gym_info.get(gym_id, {}).get('url', 'https://raw.githubusercontent.com/kvangent/PokeAlarm/master/icons/gym_0.png'),
-=======
-            "gym_name": gym_info.get('name', 'unknown'),
-            "gym_description": gym_info.get('description', 'unknown'),
-            "gym_url": gym_info.get('url', 'https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/gym_0.png'),
->>>>>>> b64c3eec4ac8d747db26b14756ef71e5b2820203
             'time_left': time_str[0],
             '12h_time': time_str[1],
             '24h_time': time_str[2],
@@ -1026,17 +1000,11 @@ class Manager(object):
             'begin_12h_time': start_time_str[1],
             'begin_24h_time': start_time_str[2],
             "dist": get_dist_as_str(dist),
-<<<<<<< HEAD
-            'dir': get_cardinal_dir([lat, lng], self.__latlng),
             'quick_move': self.__move_name.get(quick_id, 'unknown'),
             'charge_move': self.__move_name.get(charge_id, 'unknown'),
-            'team': self.__team_name[raid['team_id']]
-=======
+            'team': self.__team_name[raid['team_id']],
             'dir': get_cardinal_dir([lat, lng], self.__location),
-            'quick_move': self.__locale.get_move_name(quick_id),
-            'charge_move': self.__locale.get_move_name(charge_id),
             'form': self.__locale.get_form_name(pkmn_id, raid_pkmn['form_id'])
->>>>>>> b64c3eec4ac8d747db26b14756ef71e5b2820203
         })
 
         threads = []
