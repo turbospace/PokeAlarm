@@ -737,8 +737,8 @@ class Manager(object):
         # Get some more info out used to check filters
         lat, lng = gym['lat'], gym['lng']
         dist = get_earth_dist([lat, lng], self.__location)
-        cur_team = self.__locale.get_team_name(to_team_id)
-        old_team = self.__locale.get_team_name(from_team_id)
+        cur_team = self.__locale.team_name(to_team_id)
+        old_team = self.__locale.team_name(from_team_id)
 
         filters = self.__gym_settings['filters']
         passed = False
@@ -890,7 +890,7 @@ class Manager(object):
             'begin_24h_time': start_time_str[2],
             "dist": get_dist_as_str(dist),
             'dir': get_cardinal_dir([lat, lng], self.__latlng),
-            'team': self.__team_name[egg['team_id']]
+            #'team': self.__team_name[egg['team_id']]
         })
 
         threads = []
@@ -1002,7 +1002,7 @@ class Manager(object):
             "dist": get_dist_as_str(dist),
             'quick_move': self.__locale.get_move_name(quick_id),
             'charge_move': self.__locale.get_move_name(charge_id),
-            'team': self.__team_name[raid['team_id']],
+            #'team': self.__team_name[raid['team_id']],
             'dir': get_cardinal_dir([lat, lng], self.__location),
             'form': self.__locale.get_form_name(pkmn_id, raid_pkmn['form_id'])
         })
