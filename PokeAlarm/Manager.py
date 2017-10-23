@@ -13,7 +13,7 @@ import gipc
 import googlemaps
 # Local Imports
 from . import config
-from Filters import Geofence, load_pokemon_section, load_pokestop_section, load_gym_section, load_egg_section, \
+from Filters import load_pokemon_section, load_pokestop_section, load_gym_section, load_egg_section, \
     load_raid_section
 from Utils import get_cardinal_dir, get_dist_as_str, get_earth_dist, get_path, get_time_as_str, \
     require_and_remove_key, parse_boolean, contains_arg
