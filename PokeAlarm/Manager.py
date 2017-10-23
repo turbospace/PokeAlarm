@@ -569,7 +569,7 @@ class Manager(object):
         # Extract some useful info that will be used in the filters
 
         lat, lng = pkmn['lat'], pkmn['lng']
-        dist = get_earth_dist([lat, lng], self.__latlng)
+        dist = get_earth_dist([lat, lng], self.__location)
         form_id = pkmn.get('form_id', 0)
         if form_id == '?':
             form_id = 0
@@ -605,8 +605,8 @@ class Manager(object):
             'iv_0': "{:.0f}".format(iv) if iv != '?' else '?',
             'iv': "{:.1f}".format(iv) if iv != '?' else '?',
             'iv_2': "{:.2f}".format(iv) if iv != '?' else '?',
-            'quick_move': self.__move_name.get(quick_id, 'unknown'),
-            'charge_move': self.__move_name.get(charge_id, 'unknown'),
+            'quick_move': self.__locale.get_move_name(quick_id),
+            'charge_move': self.__locale.get_move_name(charge_id),
             'form_id': (chr(64 + int(form_id))) if form_id and int(form_id) > 0 else ''
         })
         if self.__loc_service:
@@ -1000,8 +1000,8 @@ class Manager(object):
             'begin_12h_time': start_time_str[1],
             'begin_24h_time': start_time_str[2],
             "dist": get_dist_as_str(dist),
-            'quick_move': self.__move_name.get(quick_id, 'unknown'),
-            'charge_move': self.__move_name.get(charge_id, 'unknown'),
+            'quick_move': self.__locale.get_move_name(quick_id),
+            'charge_move': self.__locale.get_move_name(charge_id),
             'team': self.__team_name[raid['team_id']],
             'dir': get_cardinal_dir([lat, lng], self.__location),
             'form': self.__locale.get_form_name(pkmn_id, raid_pkmn['form_id'])
