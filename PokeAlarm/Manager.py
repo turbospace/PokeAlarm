@@ -737,8 +737,8 @@ class Manager(object):
         # Get some more info out used to check filters
         lat, lng = gym['lat'], gym['lng']
         dist = get_earth_dist([lat, lng], self.__location)
-        cur_team = self.__locale.team_name(to_team_id)
-        old_team = self.__locale.team_name(from_team_id)
+        cur_team = self.__locale.get_team_name(to_team_id)
+        old_team = self.__locale.get_team_name(from_team_id)
 
         filters = self.__gym_settings['filters']
         passed = False
