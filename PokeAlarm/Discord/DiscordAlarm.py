@@ -23,8 +23,8 @@ class DiscordAlarm(Alarm):
         'pokemon': {
             'username': "<pkmn>",
             'content':"",
-            'icon_url': "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/<pkmn_id>.png",
-            'avatar_url': "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/<pkmn_id>.png",
+            'icon_url': "https://raw.githubusercontent.com/Gladiator10864/PokeAlarm/master/icons/<pkmn_id>.png",
+            'avatar_url': "https://raw.githubusercontent.com/Gladiator10864/PokeAlarm/master/icons/<pkmn_id>.png",
             'title': "A wild <pkmn> has appeared!",
             'url': "<gmaps>",
             'body': "Available until <24h_time> (<time_left>)."
@@ -32,8 +32,8 @@ class DiscordAlarm(Alarm):
         'pokestop': {
             'username': "Pokestop",
             'content': "",
-            'icon_url': "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/pokestop.png",
-            'avatar_url': "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/pokestop.png",
+            'icon_url': "https://raw.githubusercontent.com/Gladiator10864/PokeAlarm/master/icons/pokestop.png",
+            'avatar_url': "https://raw.githubusercontent.com/Gladiator10864/PokeAlarm/master/icons/pokestop.png",
             'title': "Someone has placed a lure on a Pokestop!",
             'url': "<gmaps>",
             'body': "Lure will expire at <24h_time> (<time_left>)."
@@ -60,7 +60,7 @@ class DiscordAlarm(Alarm):
             'username': "Raid",
             'content': "",
             'icon_url': "<gym_url>",
-            'avatar_url': "https://raw.githubusercontent.com/RocketMap/PokeAlarm/master/icons/<pkmn_id>.png",
+            'avatar_url': "https://raw.githubusercontent.com/Gladiator10864/PokeAlarm/master/icons/<pkmn_id>.png",
             'title': "Level <raid_level> Raid is available against <pkmn>!",
             'url': "<gmaps>",
             'body': "The raid is available until <24h_time> (<time_left>)."
