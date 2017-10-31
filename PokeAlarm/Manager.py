@@ -889,7 +889,7 @@ class Manager(object):
             'begin_12h_time': start_time_str[1],
             'begin_24h_time': start_time_str[2],
             "dist": get_dist_as_str(dist),
-            'dir': get_cardinal_dir([lat, lng], self.__latlng),
+            'dir': get_cardinal_dir([lat, lng], self.__location),
             #'team': self.__team_name[egg['team_id']]
         })
 
