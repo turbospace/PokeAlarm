@@ -132,7 +132,8 @@ class DiscordAlarm(Alarm):
         log.debug("Attempting to send notification to Discord.")
         payload = {
             'username': replace(alert['username'], info)[:32],  # Username must be 32 characters or less
-            'content': replace(alert['content'], info),
+            #'content': replace(alert['content'], info),
+            'content':(replace(alert['content'], info) + ' ' + str(info['mention'])),
             'avatar_url':  replace(alert['avatar_url'], info),
         }
         if alert['disable_embed'] is False:

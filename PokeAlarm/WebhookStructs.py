@@ -78,7 +78,8 @@ class RocketMap:
             'tiny_rat': '',
             'big_karp': '',
             'gmaps': get_gmaps_link(lat, lng),
-            'applemaps': get_applemaps_link(lat, lng)
+            'applemaps': get_applemaps_link(lat, lng),
+            'mention': ''
         }
         if pkmn['atk'] != '?' or pkmn['def'] != '?' or pkmn['sta'] != '?':
             pkmn['iv'] = float(((pkmn['atk'] + pkmn['def'] + pkmn['sta']) * 100) / float(45))
@@ -237,7 +238,8 @@ class RocketMap:
             'lng': float(data['longitude']),
             'gym_name': data.get('gym_name'),
             'gym_url': data.get('gym_url'),
-            'team_id': check_for_none(int, data.get('team'), 0)
+            'team_id': check_for_none(int, data.get('team'), 0),
+            'mention': ''
         }
 
         raid['gmaps'] = get_gmaps_link(raid['lat'], raid['lng'])

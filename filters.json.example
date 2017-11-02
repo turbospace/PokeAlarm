@@ -22,7 +22,7 @@
             "size": null, "gender": null, "form": null,
             "ignore_missing": "False"
         },
-        "Bulbasaur":"False",
+        "Bulbasaur":{"mention": "<@246463262352525> role is being tagged"},
         "Ivysaur":"False",
         "Venusaur":"False",
         "Charmander":"False",

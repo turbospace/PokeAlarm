@@ -351,6 +351,7 @@ class Manager(object):
         name = pkmn['pkmn']
         quick_id = pkmn['quick_id']
         charge_id = pkmn['charge_id']
+        mention = pkmn['mention']
 
         for filt_ct in range(len(filters)):
             filt = filters[filt_ct]
@@ -510,12 +511,14 @@ class Manager(object):
                         log.info("{} rejected: Form ({}) was not correct - (F #{})".format(name, form_id, filt_ct))
                     continue
 
+            mention = filt.check_mention()
+
             # Nothing left to check, so it must have passed
             passed = True
             log.debug("{} passed filter #{}".format(name, filt_ct))
             break
 
-        return passed
+        return passed, mention
 
     # Check if a raid filter will pass for given raid
     def check_egg_filter(self, settings, egg):
@@ -577,7 +580,7 @@ class Manager(object):
         pkmn['pkmn'] = name
 
         filters = self.__pokemon_settings['filters'][pkmn_id]
-        passed = self.check_pokemon_filter(filters, pkmn, dist)
+        passed, mention = self.check_pokemon_filter(filters, pkmn, dist)
         # If we didn't pass any filters
         if not passed:
             return
@@ -607,7 +610,8 @@ class Manager(object):
             'iv_2': "{:.2f}".format(iv) if iv != '?' else '?',
             'quick_move': self.__locale.get_move_name(quick_id),
             'charge_move': self.__locale.get_move_name(charge_id),
-            'form_id': (chr(64 + int(form_id))) if form_id and int(form_id) > 0 else ''
+            'form_id': (chr(64 + int(form_id))) if form_id != '?' and int(form_id) > 0 else '',
+            'mention': mention
         })
         if self.__loc_service:
             self.__loc_service.add_optional_arguments(self.__location, [lat, lng], pkmn)
@@ -968,10 +972,11 @@ class Manager(object):
             'form_id': '?',
             'quick_id': quick_id,
             'charge_id': charge_id
+            'mention': None
         }
 
         filters = self.__raid_settings['filters'][pkmn_id]
-        passed = self.check_pokemon_filter(filters, raid_pkmn, dist)
+        passed, mention = self.check_pokemon_filter(filters, raid_pkmn, dist)
         # If we didn't pass any filters
         if not passed:
             log.debug("Raid {} did not pass pokemon check".format(gym_id))
@@ -1004,7 +1009,8 @@ class Manager(object):
             'charge_move': self.__locale.get_move_name(charge_id),
             #'team': self.__team_name[raid['team_id']],
             'dir': get_cardinal_dir([lat, lng], self.__location),
-            'form': self.__locale.get_form_name(pkmn_id, raid_pkmn['form_id'])
+            #'form': self.__locale.get_form_name(pkmn_id, raid_pkmn['form_id']),
+            'mention': mention
         })
 
         threads = []

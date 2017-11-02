@@ -48,7 +48,8 @@ def load_pokemon_filters(settings):
         "quick_move": None, "charge_move": None, "moveset": None,
         "size": None,
         "gender": None,
-        "form": None
+        "form": None,
+        "mention": None
     }, 'default')
     default = default_filt.to_dict()
 
@@ -200,6 +201,7 @@ class PokemonFilter(Filter):
         self.sizes = PokemonFilter.check_sizes(settings.pop("size", default['size']))
         self.genders = PokemonFilter.check_genders(settings.pop("gender", default['gender']))
         self.forms = PokemonFilter.check_forms(settings.pop("form", default['form']))
+        self.mention = str(settings.pop('mention', None) or default['mention'])
         # Moves - These can't be set in the default filter
         self.req_quick_move = PokemonFilter.create_moves_list(settings.pop("quick_move", default['quick_move']))
         self.req_charge_move = PokemonFilter.create_moves_list(settings.pop("charge_move", default['charge_move']))
@@ -274,6 +276,14 @@ class PokemonFilter(Filter):
             return True
         return form_id in self.forms
 
+    # Checks for an @mention
+    def check_mention(self):
+        if self.mention == "None":
+            self.mention=""
+        if self.mention == None:
+            self.mention=""
+        return self.mention
+
     # Convert this filter to a dict
     def to_dict(self):
         return {
@@ -289,6 +299,7 @@ class PokemonFilter(Filter):
             "size": self.sizes,
             "gender": self.genders,
             "form": self.forms,
+            "mention": self.mention,
             "ignore_missing": self.ignore_missing
         }
 
@@ -306,6 +317,7 @@ class PokemonFilter(Filter):
                "Move Sets: {}, ".format(self.req_moveset) + \
                "Sizes: {}, ".format(self.sizes) + \
                "Genders: {}, ".format(self.genders) + \
+               "Mention: {}, ".format(self.mention) + \
                "Ignore Missing: {} ".format(self.ignore_missing)
 
     @staticmethod
