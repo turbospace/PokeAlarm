@@ -971,8 +971,8 @@ class Manager(object):
             'size': 'unknown',
             'form_id': '?',
             'quick_id': quick_id,
-            'charge_id': charge_id
-            #'mention': None
+            'charge_id': charge_id,
+            'mention': None
         }
 
         filters = self.__raid_settings['filters'][pkmn_id]
